@@ -1,7 +1,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.acnh_mate">
+    package="dk.easv.acnh_mate.acnh_mate_frontend">
    <application
-        android:label="acnh_mate"
+        android:label="acnh_mate_frontend"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
         <activity

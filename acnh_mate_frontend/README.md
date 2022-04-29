@@ -1,6 +1,6 @@
-# acnh_mate
+# acnh_mate_frontend
 
-A new Flutter project.
+ACNH Mate
 
 ## Getting Started
 
