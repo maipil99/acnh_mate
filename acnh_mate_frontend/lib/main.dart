@@ -1,4 +1,4 @@
-import 'package:acnh_mate_frontend/home_page.dart';
+import 'package:acnh_mate_frontend/Views/home_page.dart';
 import 'package:flutter/material.dart';
 
 void main() {
