@@ -14,6 +14,7 @@ pipeline {
 
         stage('Build Frontend') {
             steps {
+                sh "echo 'Building Frontend'"
             }
         }
 
@@ -36,6 +37,7 @@ pipeline {
 
         stage('Send Discord Notification') {
             steps {
+                sh "echo 'Doing discord stuff'"
             }
         }
     }
