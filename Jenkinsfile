@@ -34,10 +34,11 @@ pipeline {
                 sh 'sudo docker compose -p acnh-mate --env-file ./config/prod.env up -d'
             }
         }
-
-        stage('Send Discord Notification') {
-            steps {
-                sh "echo 'Doing discord stuff'"
+    }
+    post{
+        always{
+            withCredentials([string(credentialsId: 'DISCORD_WEBHOOK', variable: 'DISCORD_WEBHOOK_URL')]){
+                discordSend description: "Jenkins Pipeline Build", footer: "Footer Text", link: env.BUILD_URL, result: currentBuild.currentResult, title: JOB_NAME, webhookURL: "$(DISCORD_WEBHOOK_URL)"
             }
         }
     }
