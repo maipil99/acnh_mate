@@ -5,8 +5,8 @@ pipeline {
         stage('Build Backend') {
             steps {
                 dir('AcnhMateApi') {
-                    sh 'sudo rm -rf ./bin'
-                    sh 'sudo rm -rf ./obj'
+                    sh 'rm -rf ./bin'
+                    sh 'rm -rf ./obj'
                     sh 'dotnet build'
                 }
             }
@@ -22,7 +22,7 @@ pipeline {
             steps {
                 script {
                     try {
-                        sh 'sudo docker-compose --env-file ./config/prod.env down'
+                        sh 'sudo docker compose --env-file ./config/prod.env down'
                     } finally {
                     }
                 }
@@ -31,7 +31,7 @@ pipeline {
 
         stage('Deploy') {
             steps {
-                sh 'sudo docker-compose -p acnh-mate --env-file ./config/prod.env up -d'
+                sh 'sudo docker compose -p acnh-mate --env-file ./config/prod.env up -d'
             }
         }
 
