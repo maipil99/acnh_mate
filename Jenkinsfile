@@ -22,7 +22,7 @@ pipeline {
             steps {
                 script {
                     try {
-                        sh 'docker-compose --env-file ./config/prod.env down'
+                        sh 'docker compose --env-file ./config/prod.env down'
                     } finally {
                     }
                 }
@@ -31,7 +31,7 @@ pipeline {
 
         stage('Deploy') {
             steps {
-                sh 'docker-compose -p acnh-mate --env-file ./config/prod.env up -d'
+                sh 'docker compose -p acnh-mate --env-file ./config/prod.env up -d'
             }
         }
 
