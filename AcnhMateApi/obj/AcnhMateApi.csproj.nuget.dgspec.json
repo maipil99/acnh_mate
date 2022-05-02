@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\denis\\StudioProjects\\acnh_mate\\AcnhMateApi\\AcnhMateApi.csproj": {}
+    "C:\\Users\\rasmu\\RiderProjects\\acnh_mate\\AcnhMateApi\\AcnhMateApi.csproj": {}
   },
   "projects": {
-    "C:\\Users\\denis\\StudioProjects\\acnh_mate\\AcnhMateApi\\AcnhMateApi.csproj": {
+    "C:\\Users\\rasmu\\RiderProjects\\acnh_mate\\AcnhMateApi\\AcnhMateApi.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\denis\\StudioProjects\\acnh_mate\\AcnhMateApi\\AcnhMateApi.csproj",
+        "projectUniqueName": "C:\\Users\\rasmu\\RiderProjects\\acnh_mate\\AcnhMateApi\\AcnhMateApi.csproj",
         "projectName": "AcnhMateApi",
-        "projectPath": "C:\\Users\\denis\\StudioProjects\\acnh_mate\\AcnhMateApi\\AcnhMateApi.csproj",
-        "packagesPath": "C:\\Users\\denis\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\denis\\StudioProjects\\acnh_mate\\AcnhMateApi\\obj\\",
+        "projectPath": "C:\\Users\\rasmu\\RiderProjects\\acnh_mate\\AcnhMateApi\\AcnhMateApi.csproj",
+        "packagesPath": "C:\\Users\\rasmu\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\rasmu\\RiderProjects\\acnh_mate\\AcnhMateApi\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\denis\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\rasmu\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -26,12 +26,20 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net6.0": {
             "targetAlias": "net6.0",
-            "projectReferences": {}
+            "projectReferences": {
+              "C:\\Users\\rasmu\\RiderProjects\\acnh_mate\\AcnhMateApi\\AcnhMateApi.Models\\AcnhMateApi.Models.csproj": {
+                "projectPath": "C:\\Users\\rasmu\\RiderProjects\\acnh_mate\\AcnhMateApi\\AcnhMateApi.Models\\AcnhMateApi.Models.csproj"
+              },
+              "C:\\Users\\rasmu\\RiderProjects\\acnh_mate\\AcnhMateApi\\AcnhMateApi.Tests\\AcnhMateApi.Tests.csproj": {
+                "projectPath": "C:\\Users\\rasmu\\RiderProjects\\acnh_mate\\AcnhMateApi\\AcnhMateApi.Tests\\AcnhMateApi.Tests.csproj"
+              }
+            }
           }
         },
         "warningProperties": {
@@ -44,6 +52,14 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "dependencies": {
+            "MongoDB.Bson": {
+              "target": "Package",
+              "version": "[2.15.0, )"
+            },
+            "MongoDB.Driver": {
+              "target": "Package",
+              "version": "[2.15.0, )"
+            },
             "Swashbuckle.AspNetCore": {
               "target": "Package",
               "version": "[6.2.3, )"
@@ -67,7 +83,157 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.201\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.300-preview.22204.3\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\rasmu\\RiderProjects\\acnh_mate\\AcnhMateApi\\AcnhMateApi.Models\\AcnhMateApi.Models.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\rasmu\\RiderProjects\\acnh_mate\\AcnhMateApi\\AcnhMateApi.Models\\AcnhMateApi.Models.csproj",
+        "projectName": "AcnhMateApi.Models",
+        "projectPath": "C:\\Users\\rasmu\\RiderProjects\\acnh_mate\\AcnhMateApi\\AcnhMateApi.Models\\AcnhMateApi.Models.csproj",
+        "packagesPath": "C:\\Users\\rasmu\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\rasmu\\RiderProjects\\acnh_mate\\AcnhMateApi\\AcnhMateApi.Models\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\rasmu\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "dependencies": {
+            "MongoDB.Bson": {
+              "target": "Package",
+              "version": "[2.15.0, )"
+            },
+            "MongoDB.Driver": {
+              "target": "Package",
+              "version": "[2.15.0, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.300-preview.22204.3\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\rasmu\\RiderProjects\\acnh_mate\\AcnhMateApi\\AcnhMateApi.Tests\\AcnhMateApi.Tests.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\rasmu\\RiderProjects\\acnh_mate\\AcnhMateApi\\AcnhMateApi.Tests\\AcnhMateApi.Tests.csproj",
+        "projectName": "AcnhMateApi.Tests",
+        "projectPath": "C:\\Users\\rasmu\\RiderProjects\\acnh_mate\\AcnhMateApi\\AcnhMateApi.Tests\\AcnhMateApi.Tests.csproj",
+        "packagesPath": "C:\\Users\\rasmu\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\rasmu\\RiderProjects\\acnh_mate\\AcnhMateApi\\AcnhMateApi.Tests\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\rasmu\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "dependencies": {
+            "Microsoft.NET.Test.Sdk": {
+              "target": "Package",
+              "version": "[16.11.0, )"
+            },
+            "coverlet.collector": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[3.1.0, )"
+            },
+            "xunit": {
+              "target": "Package",
+              "version": "[2.4.1, )"
+            },
+            "xunit.runner.visualstudio": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[2.4.3, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.300-preview.22204.3\\RuntimeIdentifierGraph.json"
         }
       }
     }

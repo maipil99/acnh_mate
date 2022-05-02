@@ -7,11 +7,39 @@
     </PropertyGroup>
 
     <ItemGroup>
+        <PackageReference Include="MongoDB.Bson" Version="2.15.0" />
+        <PackageReference Include="MongoDB.Driver" Version="2.15.0" />
         <PackageReference Include="Swashbuckle.AspNetCore" Version="6.2.3" />
     </ItemGroup>
 
     <ItemGroup>
       <Folder Include="Controllers" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="AcnhMateApi.Models\AcnhMateApi.Models.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Compile Remove="AcnhMateApi.Tests\**" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <EmbeddedResource Remove="AcnhMateApi.Tests\**" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <None Remove="AcnhMateApi.Tests\**" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Content Remove="AcnhMateApi.Tests\**" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <_ContentIncludedByDefault Remove="AcnhMateApi.Tests\obj\AcnhMateApi.Tests.csproj.nuget.dgspec.json" />
+      <_ContentIncludedByDefault Remove="AcnhMateApi.Tests\obj\project.assets.json" />
+      <_ContentIncludedByDefault Remove="AcnhMateApi.Tests\obj\project.packagespec.json" />
     </ItemGroup>
 
 </Project>
