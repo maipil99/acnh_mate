@@ -4,8 +4,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AcnhMateApi", "AcnhMateApi.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AcnhMateApi.Models", "AcnhMateApi.Models\AcnhMateApi.Models.csproj", "{562A3DAA-9566-4E4A-9844-F008341F73A5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AcnhMateApi.Tests", "AcnhMateApi.Tests\AcnhMateApi.Tests.csproj", "{237E3B18-CEEA-4F56-9183-DC8B798082B2}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -20,9 +18,5 @@ Global
 		{562A3DAA-9566-4E4A-9844-F008341F73A5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{562A3DAA-9566-4E4A-9844-F008341F73A5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{562A3DAA-9566-4E4A-9844-F008341F73A5}.Release|Any CPU.Build.0 = Release|Any CPU
-		{237E3B18-CEEA-4F56-9183-DC8B798082B2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{237E3B18-CEEA-4F56-9183-DC8B798082B2}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{237E3B18-CEEA-4F56-9183-DC8B798082B2}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{237E3B18-CEEA-4F56-9183-DC8B798082B2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
