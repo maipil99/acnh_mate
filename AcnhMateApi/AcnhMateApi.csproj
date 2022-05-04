@@ -17,10 +17,6 @@
     </ItemGroup>
 
     <ItemGroup>
-      <ProjectReference Include="AcnhMateApi.Models\AcnhMateApi.Models.csproj" />
-    </ItemGroup>
-
-    <ItemGroup>
       <Compile Remove="AcnhMateApi.Tests\**" />
     </ItemGroup>
 
@@ -40,6 +36,9 @@
       <_ContentIncludedByDefault Remove="AcnhMateApi.Tests\obj\AcnhMateApi.Tests.csproj.nuget.dgspec.json" />
       <_ContentIncludedByDefault Remove="AcnhMateApi.Tests\obj\project.assets.json" />
       <_ContentIncludedByDefault Remove="AcnhMateApi.Tests\obj\project.packagespec.json" />
+      <_ContentIncludedByDefault Remove="AcnhMateApi.Models\obj\AcnhMateApi.Models.csproj.nuget.dgspec.json" />
+      <_ContentIncludedByDefault Remove="AcnhMateApi.Models\obj\project.assets.json" />
+      <_ContentIncludedByDefault Remove="AcnhMateApi.Models\obj\project.packagespec.json" />
     </ItemGroup>
 
 </Project>
