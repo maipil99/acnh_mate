@@ -1,3 +1,9 @@
+using AcnhMateApi;
+using AcnhMateApi.Services;
+using Microsoft.AspNetCore.Builder;
+using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Hosting;
 using MongoDB.Bson.Serialization.Conventions;
 using MongoDB.Driver;
 
@@ -12,11 +18,17 @@ builder.Services.AddSwaggerGen();
 var pack = new ConventionPack {new CamelCaseElementNameConvention()};
 ConventionRegistry.Register("Camel case convention", pack, t => true);
 
-var client = new MongoClient("mongodb://localhost:27017/?readPreference=primary&appname=MongoDB%20Compass&ssl=false");
-var database = client.GetDatabase("animal-crossing");
+var dbSettingsSection = builder.Configuration.GetSection("AnimalCrossingDatabaseSettings");
 
-builder.Services.AddSingleton<IMongoClient>(client);
-builder.Services.AddSingleton<IMongoDatabase>(database);
+builder.Services.Configure<AnimalCrossingDatabaseSettings>(dbSettingsSection);
+
+var client = new MongoClient(dbSettingsSection.Get<AnimalCrossingDatabaseSettings>().ConnectionString);
+var db = client.GetDatabase(dbSettingsSection.Get<AnimalCrossingDatabaseSettings>().DatabaseName);
+
+
+builder.Services.AddSingleton<IMongoDatabase>(db);
+builder.Services.AddSingleton<MongoClient>(client);
+builder.Services.AddSingleton<FossilsService>();
 
 
 var app = builder.Build();
