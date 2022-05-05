@@ -2,6 +2,10 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AcnhMateApi", "AcnhMateApi.csproj", "{90614850-109B-45CD-BD34-4161A4738F19}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AcnhMateApi.Models", "AcnhMateApi.Models\AcnhMateApi.Models.csproj", "{AEB06B9C-FD33-4B45-A0B7-3AEEE17B9C43}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AcnhMateApi.Tests", "AcnhMateApi.Tests\AcnhMateApi.Tests.csproj", "{2CA313AE-851E-45C9-B793-3037CA41C347}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -12,5 +16,13 @@ Global
 		{90614850-109B-45CD-BD34-4161A4738F19}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{90614850-109B-45CD-BD34-4161A4738F19}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{90614850-109B-45CD-BD34-4161A4738F19}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AEB06B9C-FD33-4B45-A0B7-3AEEE17B9C43}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AEB06B9C-FD33-4B45-A0B7-3AEEE17B9C43}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AEB06B9C-FD33-4B45-A0B7-3AEEE17B9C43}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AEB06B9C-FD33-4B45-A0B7-3AEEE17B9C43}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2CA313AE-851E-45C9-B793-3037CA41C347}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2CA313AE-851E-45C9-B793-3037CA41C347}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2CA313AE-851E-45C9-B793-3037CA41C347}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2CA313AE-851E-45C9-B793-3037CA41C347}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
