@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 
-class drawer_button extends StatelessWidget {
+class DrawerButton extends StatelessWidget {
   final String text;
   final Function onPressed;
 
-  const drawer_button({
+  const DrawerButton({
+    Key? key,
     required this.text,
     required this.onPressed,
-
-  });
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -16,9 +16,7 @@ class drawer_button extends StatelessWidget {
       onPressed: () {
         onPressed();
       },
-      child: Text(text,
-          style: const TextStyle(color: Colors.white)
-      ),
+      child: Text(text, style: const TextStyle(color: Colors.white)),
       style: TextButton.styleFrom(backgroundColor: Colors.blue),
     );
   }
