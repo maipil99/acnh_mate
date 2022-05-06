@@ -1,6 +1,6 @@
 services:
   db:
-    image: mongo
+    image: mongo:4.4.13
     container_name: "${DB_CONT_NAME}"
     restart: always
     ports:
