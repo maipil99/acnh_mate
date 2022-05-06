@@ -1,7 +1,7 @@
 ﻿using MongoDB.Bson.Serialization.Attributes;
 
 namespace AcnhMateApi.Models;
-
+[CollectionName("misc")]
 public class Misc: BaseDataObject
 {
     [BsonElement("buy-price")]

@@ -1,7 +1,7 @@
 ﻿using MongoDB.Bson.Serialization.Attributes;
 
 namespace AcnhMateApi.Models;
-
+[CollectionName("bugs")]
 public class Bug: BaseDataObject
 {
     [BsonElement("availability")]

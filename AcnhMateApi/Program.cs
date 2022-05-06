@@ -28,7 +28,7 @@ var db = client.GetDatabase(dbSettingsSection.Get<AnimalCrossingDatabaseSettings
 
 builder.Services.AddSingleton<IMongoDatabase>(db);
 builder.Services.AddSingleton<MongoClient>(client);
-builder.Services.AddSingleton<FossilsService>();
+builder.Services.AddSingleton<FossilsRepository>();
 
 
 var app = builder.Build();
