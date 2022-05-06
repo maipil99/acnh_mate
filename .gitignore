@@ -44,3 +44,5 @@ app.*.map.json
 /android/app/debug
 /android/app/profile
 /android/app/release
+/acnh_mate_frontend/build/
+/acnh_mate_frontend/gen/
