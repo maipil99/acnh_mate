@@ -6,32 +6,33 @@ using AcnhMateApi.Models;
 using AcnhMateApi.Services;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using MongoDB.Bson;
 
 namespace AcnhMateApi.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class FossilController : ControllerBase
+    public class FossilsController : ControllerBase
     {
-        private readonly FossilsService _fossilsService;
+        private readonly FossilsRepository _fossilsRepository;
 
-        public FossilController(FossilsService fossilsService)
+        public FossilsController(FossilsRepository _fossilsRepository)
         {
-            _fossilsService = fossilsService;
+            this._fossilsRepository = _fossilsRepository;
         }
 
         // GET: api/Fossil
         [HttpGet]
-        public IEnumerable<Fossil> Get()
+        public async Task<IEnumerable<Fossil>> Get()
         {
-            return _fossilsService.Get();
+            return await _fossilsRepository.GetAllAsync();
         }
 
         // GET: api/Fossil/5
-        [HttpGet("{id}", Name = "Get")]
-        public string Get(int id)
+        [HttpGet("{fileName}", Name = "Get")]
+        public async Task<Fossil> Get(string fileName)
         {
-            return "value";
+            return await _fossilsRepository.GetByFileNameAsync(fileName);
         }
 
         // POST: api/Fossil
