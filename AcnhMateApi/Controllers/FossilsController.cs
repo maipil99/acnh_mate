@@ -29,7 +29,7 @@ namespace AcnhMateApi.Controllers
         }
 
         // GET: api/Fossil/5
-        [HttpGet("{fileName}", Name = "Get")]
+        [HttpGet("{fileName}")]
         public async Task<Fossil> Get(string fileName)
         {
             return await _fossilsRepository.GetByFileNameAsync(fileName);
