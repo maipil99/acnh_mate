@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -11,42 +11,41 @@ namespace AcnhMateApi.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class FossilController : ControllerBase
+    public class ArtController : ControllerBase
     {
-        private readonly FossilsService _fossilsService;
+        private readonly ArtRepository _artRepository;
 
-        public FossilController(FossilsService fossilsService)
+        public ArtController(ArtRepository _artRepository)
         {
-            _fossilsService = fossilsService;
+            this._artRepository = _artRepository;
         }
-
-        // GET: api/Fossil
+        // GET: api/Art
         [HttpGet]
-        public IEnumerable<Fossil> Get()
+        public async Task<IEnumerable<Art>> Get()
         {
-            return _fossilsService.Get();
+            return await _artRepository.GetAllAsync();
         }
 
-        // GET: api/Fossil/5
-        [HttpGet("{id}", Name = "Get")]
-        public string Get(int id)
+        // GET: api/Art/5
+        [HttpGet("{id}")]
+        public async Task<Art> Get(int id)
         {
-            return "value";
+            return await _artRepository.GetByIdAsync(id);
         }
 
-        // POST: api/Fossil
+        // POST: api/Art
         [HttpPost]
         public void Post([FromBody] string value)
         {
         }
 
-        // PUT: api/Fossil/5
+        // PUT: api/Art/5
         [HttpPut("{id}")]
         public void Put(int id, [FromBody] string value)
         {
         }
 
-        // DELETE: api/Fossil/5
+        // DELETE: api/Art/5
         [HttpDelete("{id}")]
         public void Delete(int id)
         {

@@ -2,6 +2,7 @@
 
 namespace AcnhMateApi.Models;
 
+[CollectionName("sea")]
 public class Sea: BaseDataObject
 {
     [BsonElement("availability")]

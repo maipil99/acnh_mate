@@ -1,7 +1,7 @@
 ﻿using MongoDB.Bson.Serialization.Attributes;
 
 namespace AcnhMateApi.Models;
-
+[CollectionName("fish")]
 public class Fish: BaseDataObject
 {
     

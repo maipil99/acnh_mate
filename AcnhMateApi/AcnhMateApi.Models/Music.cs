@@ -2,6 +2,7 @@
 
 namespace AcnhMateApi.Models;
 
+[CollectionName("music")]
 public class Music: BaseDataObject
 {
     [BsonElement("buy-price")]

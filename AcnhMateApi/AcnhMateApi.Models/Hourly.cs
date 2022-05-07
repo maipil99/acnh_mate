@@ -1,7 +1,7 @@
 ﻿using MongoDB.Bson.Serialization.Attributes;
 
 namespace AcnhMateApi.Models;
-
+[CollectionName("hourly")]
 public class Hourly: BaseDataObject
 {
     [BsonElement("hour")]

@@ -2,6 +2,7 @@
 
 namespace AcnhMateApi.Models;
 
+[CollectionName("villagers")]
 public class Villager: BaseDataObject
 {
     [BsonElement("personality")]

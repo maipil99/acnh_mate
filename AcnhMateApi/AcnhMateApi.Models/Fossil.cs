@@ -2,6 +2,7 @@
 
 namespace AcnhMateApi.Models;
 
+[CollectionName("fossils")]
 public class Fossil: BaseDataObject
 {
     [BsonElement("price")]
