@@ -36,7 +36,7 @@ pipeline {
         }
         stage("Push images to registry") {
             steps {
-                sh "docker compose --env-file config/test.env push"
+                sh "sudo docker compose --env-file ./config/test.env push"
             }
         }
     }
