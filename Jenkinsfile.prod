@@ -4,6 +4,16 @@ pipeline {
         run filter: 'SUCCESSFUL', name: 'PROMOTED_BUILD', projectName: 'ACNH Mate'
     }
     stages {
+        stage('Clean Containers') {
+            steps {
+                script {
+                    try {
+                        sh 'sudo docker compose --env-file ./config/prod.env down'
+                    } finally {
+                    }
+                }
+            }
+        }
         stage("Deploy") {
             steps{
                 sh "sudo docker compose --env-file config/prod.env pull"
