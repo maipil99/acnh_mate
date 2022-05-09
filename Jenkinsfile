@@ -17,7 +17,6 @@ pipeline {
                 sh "echo 'Building Frontend'"
             }
         }
-
         stage('Clean Containers') {
             steps {
                 script {
@@ -28,7 +27,6 @@ pipeline {
                 }
             }
         }
-
         stage('Deploy') {
             steps {
                 sh 'sudo docker compose -p acnh-mate-test --env-file ./config/test.env up -d'
