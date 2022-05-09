@@ -12,12 +12,12 @@ class DrawerButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return TextButton(
+    return ElevatedButton(
       onPressed: () {
         onPressed();
       },
       child: Text(text, style: const TextStyle(color: Colors.white)),
-      style: TextButton.styleFrom(backgroundColor: Colors.blue),
+
     );
   }
 }
