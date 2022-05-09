@@ -28,7 +28,7 @@ services:
   backend:
     build:
       context: AcnhMateApi
-    image: "localhost:7002/ACNH_MATE_BACKEND"
+    image: "localhost:7002/acnh_mate_backend"
     container_name: "${BACK_CONT_NAME}"
     ports:
       - "${BACK_PORT}:80"
