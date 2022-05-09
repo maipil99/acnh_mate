@@ -22,7 +22,7 @@ pipeline {
             steps {
                 script {
                     try {
-                        sh 'sudo docker compose --env-file ./config/prod.env down'
+                        sh 'sudo docker compose --env-file ./config/test.env down'
                     } finally {
                     }
                 }
@@ -31,7 +31,12 @@ pipeline {
 
         stage('Deploy') {
             steps {
-                sh 'sudo docker compose -p acnh-mate --env-file ./config/prod.env up -d'
+                sh 'sudo docker compose -p acnh-mate-test --env-file ./config/test.env up -d'
+            }
+        }
+        stage("Push images to registry") {
+            steps {
+                sh "docker-compose --env-file config/test.env push"
             }
         }
     }
