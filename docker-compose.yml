@@ -28,11 +28,7 @@ services:
   backend:
     build:
       context: AcnhMateApi
-    image: "localhost:7002/acnh_mate_backend"
-    container_name: "${BACK_CONT_NAME}"
-    ports:
-      - "${BACK_PORT}:80"
-    environment:
+    image: "localhost:7002/acnh_mate_backend:${IMAGE_TAG}"
       - AnimalCrossingDatabaseSettings__ConnectionString=${CONNECTION_STRING}
       - AnimalCrossingDatabaseSettings__DataBaseName=animal-crossing
     depends_on:

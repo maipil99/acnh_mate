@@ -1,13 +1,13 @@
 pipeline {
     agent any
-    parameters{
+    parameters {
         run filter: 'SUCCESSFUL', name: 'PROMOTED_BUILD', projectName: 'ACNH Mate'
     }
     stages {
         stage("Deploy") {
             steps{
-                sh "docker-compose --env-file config/Prod.env pull"
-                sh "docker-compose --env-file config/Prod.env up -d"
+                sh "sudo docker compose --env-file config/prod.env pull"
+                sh "sudo docker compose --env-file config/prod.env up -d"
             }
         }
     }
