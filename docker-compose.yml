@@ -27,7 +27,7 @@ services:
 
   backend:
     build:
-      context: AcnhMateApi
+      context: "AcnhMateApi"
       - AnimalCrossingDatabaseSettings__ConnectionString=${CONNECTION_STRING}
       - AnimalCrossingDatabaseSettings__DataBaseName=animal-crossing
     image: localhost:7002/acnh_mate_backend:${IMAGE_TAG}
