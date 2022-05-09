@@ -34,6 +34,11 @@ pipeline {
                 sh 'sudo docker compose -p acnh-mate-test --env-file ./config/test.env up -d'
             }
         }
+        stage("Push images to registry") {
+            steps {
+                sh "docker-compose --env-file config/test.env push"
+            }
+        }
     }
     post{
         always{
