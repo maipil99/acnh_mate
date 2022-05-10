@@ -36,7 +36,7 @@ pipeline {
             steps {
                 script {
                     try {
-                        sh 'sudo docker compose --env-file ./config/test.env down'
+                        sh 'sudo docker compose -p acnh-mate-test --env-file ./config/test.env down'
                     } finally {
                     }
                 }

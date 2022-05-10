@@ -8,7 +8,7 @@ pipeline {
             steps {
                 script {
                     try {
-                        sh 'sudo docker compose --env-file ./config/prod.env down'
+                        sh 'sudo docker compose -p acnh-mate-prod --env-file ./config/prod.env down'
                     } finally {
                     }
                 }
@@ -17,7 +17,7 @@ pipeline {
         stage("Deploy") {
             steps{
                 sh "sudo docker compose --env-file config/prod.env pull"
-                sh "sudo docker compose --env-file config/prod.env up -d"
+                sh "sudo docker compose -p acnh-mate-prod --env-file config/prod.env up -d"
             }
         }
     }
