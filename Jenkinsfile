@@ -17,6 +17,22 @@ pipeline {
                 sh "echo 'Building Frontend'"
             }
         }
+        stage('Testing'){
+            steps{
+                dir('AcnhMateApi/AcnhMateApi.Tests'){
+                    sh 'sudo rm -rf ./TestResults'
+                    sh 'dotnet test --collect:\'XPlat Code Coverage\''
+                }
+            }
+            post {
+                success {
+                    archiveArtifacts '/TestResults/*/coverage.cobertura.xml'
+                    publishCoverage adapters: [coberturaAdapter(path: 'TestResults/*/coverage.cobertura.xml', thresholds: [
+                            [failUnhealthy: true, thresholdTarget: 'Conditional', unhealthyThreshold: 80.0, unstableThreshold: 50.0]
+                    ])], sourceFileResolver: sourceFiles('NEVER_STORE')
+                }
+            }
+        }
         stage('Clean Containers') {
             steps {
                 script {
