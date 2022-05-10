@@ -47,8 +47,9 @@ namespace AcnhMateApi.Controllers
 
         // DELETE: api/Art/5
         [HttpDelete("{id}")]
-        public void Delete(int id)
+        public async Task<bool> Delete(int id)
         {
+            return await _artRepository.RemoveAsync(id);
         }
     }
 }

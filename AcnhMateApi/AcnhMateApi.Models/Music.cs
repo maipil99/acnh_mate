@@ -6,10 +6,10 @@ namespace AcnhMateApi.Models;
 public class Music: BaseDataObject
 {
     [BsonElement("buy-price")]
-    public int BuyPrice { get; set; }
+    public int? BuyPrice { get; set; }
 
     [BsonElement("sell-price")]
-    public int SellPrice { get; set; }
+    public int? SellPrice { get; set; }
 
     [BsonElement("isOrderable")]
     public bool IsOrderable { get; set; }
