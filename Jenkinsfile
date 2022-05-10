@@ -26,8 +26,8 @@ pipeline {
             }
             post {
                 success {
-                    archiveArtifacts '/TestResults/*/coverage.cobertura.xml'
-                    publishCoverage adapters: [coberturaAdapter(path: '/TestResults/*/coverage.cobertura.xml', thresholds: [
+                    archiveArtifacts 'AcnhMateApi/AcnhMateApi.Tests/TestResults/*/coverage.cobertura.xml'
+                    publishCoverage adapters: [coberturaAdapter(path: 'AcnhMateApi/AcnhMateApi.Tests/TestResults/*/coverage.cobertura.xml', thresholds: [
                             [failUnhealthy: true, thresholdTarget: 'Conditional', unhealthyThreshold: 80.0, unstableThreshold: 50.0]
                     ])], sourceFileResolver: sourceFiles('NEVER_STORE')
                 }
