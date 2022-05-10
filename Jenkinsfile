@@ -5,9 +5,8 @@ pipeline {
         stage('Build Backend') {
             steps {
                 dir('AcnhMateApi') {
-                    sh 'rm -rf ./bin'
-                    sh 'rm -rf ./obj'
-                    sh 'dotnet build'
+                    sh 'dotnet clean'
+                    sh 'dotnet build --configuration Release'
                 }
             }
         }
