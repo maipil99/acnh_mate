@@ -48,3 +48,15 @@ app.*.map.json
 /android/app/release
 /acnh_mate_frontend/build/
 /acnh_mate_frontend/gen/
+
+
+#.NET build output
+/AcnhMateApi/bin/**
+/AcnhMateApi/obj/**
+/AcnhMateApi/AcnhMateApi.Tests/bin/**
+/AcnhMateApi/AcnhMateApi.Tests/obj/**
+/AcnhMateApi/AcnhMateApi.Models/obj/**
+/AcnhMateApi/AcnhMateApi.Models/bin/**
+
+
+
