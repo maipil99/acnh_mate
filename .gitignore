@@ -48,3 +48,5 @@ app.*.map.json
 /android/app/release
 /acnh_mate_frontend/build/
 /acnh_mate_frontend/gen/
+/.vs
+/AcnhMateApi
