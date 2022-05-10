@@ -39,6 +39,12 @@ public class ArtControllerTests
     {
         var result = await _controller.Get(1);
         
-        Assert.Equal(_art, result);
+        Assert.Equal(_art.BuyPrice, result.BuyPrice);
+        Assert.Equal(_art.HasFake, result.HasFake);
+        Assert.Equal(_art.SellPrice, result.SellPrice);
+        Assert.Equal(_art.FileName, result.FileName);
+        Assert.Equal(_art.Name.NameEUen, result.Name.NameEUen);
+        Assert.Equal(_art.MuseumDesc, result.MuseumDesc);
+        Assert.Equal(_art.ImageUri, result.ImageUri);
     }
 }
