@@ -2,6 +2,7 @@ using System.Threading.Tasks;
 using AcnhMateApi.Controllers;
 using AcnhMateApi.Models;
 using AcnhMateApi.Services;
+using MongoDB.Driver;
 using Moq;
 using Xunit;
 
@@ -27,8 +28,8 @@ public class ArtControllerTests
             Name = new Name {NameEUen = "Mona Lisa"},
             SellPrice = 0
         };
-        
-        var repository = new Mock<ArtRepository>();
+        var mongoContext = new Mock<IMongoDatabase>();
+        var repository = new Mock<ArtRepository>(mongoContext.Object);
         repository.Setup(repo => repo.GetByIdAsync(It.IsAny<int>())).ReturnsAsync(_art);
         
         _controller = new ArtController(repository.Object);
