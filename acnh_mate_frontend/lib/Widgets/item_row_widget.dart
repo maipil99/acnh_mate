@@ -1,13 +1,18 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class ItemRowWidget extends StatelessWidget {
-  var itemIcon;
+  String image;
+  String firstIcon;
+  String secondIcon;
   String name;
-  var recipeIcon;
 
-  ItemRowWidget({Key? key, this.itemIcon, required  this.name}) : super(key: key);
-
+  ItemRowWidget(
+      {Key? key,
+      required this.image,
+      required this.name,
+      required this.firstIcon,
+      required this.secondIcon})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -15,11 +20,17 @@ class ItemRowWidget extends StatelessWidget {
       padding: EdgeInsets.all(15),
       child: Row(
         children: <Widget>[
+          Image.asset("assets/icons/" + image, height: 50),
           Text(name),
-          const Icon(Icons.directions),
           const Spacer(),
-          IconButton(onPressed:  (){}, icon: const Icon(Icons.volume_down)),
-
+          IconButton(
+              onPressed: () => {},
+              icon:
+                  Image.asset("assets/button_icons/" + firstIcon, height: 30)),
+          IconButton(
+              onPressed: () => {}, //do things
+              icon:
+              Image.asset("assets/button_icons/" + secondIcon, height: 30)),
         ],
       ),
     );
