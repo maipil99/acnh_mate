@@ -21,6 +21,7 @@
 # VS Code which you may wish to be included in version control, so this line
 # is commented out by default.
 #.vscode/
+.vs
 
 # Flutter/Dart/Pub related
 **/doc/api/
@@ -48,5 +49,3 @@ app.*.map.json
 /android/app/release
 /acnh_mate_frontend/build/
 /acnh_mate_frontend/gen/
-/.vs
-/AcnhMateApi
