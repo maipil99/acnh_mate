@@ -26,12 +26,12 @@ public class VillagersController : ControllerBase
     {
         return await _villagerRepository.GetByIdAsync(id);
     }
-    
+
     [HttpPost]
     public void Post([FromBody] string value)
     {
     }
-    
+
     [HttpPut("{id}")]
     public void Put(int id, [FromBody] string value)
     {

@@ -7,44 +7,44 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="6.0.3" />
-        <PackageReference Include="MongoDB.Bson" Version="2.15.0" />
-        <PackageReference Include="MongoDB.Driver" Version="2.15.0" />
-        <PackageReference Include="Swashbuckle.AspNetCore" Version="6.2.3" />
+        <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="6.0.3"/>
+        <PackageReference Include="MongoDB.Bson" Version="2.15.0"/>
+        <PackageReference Include="MongoDB.Driver" Version="2.15.0"/>
+        <PackageReference Include="Swashbuckle.AspNetCore" Version="6.2.3"/>
     </ItemGroup>
 
     <ItemGroup>
-      <Compile Remove="AcnhMateApi.Tests\**" />
-      <Compile Remove="AcnhMateApi.Models\**" />
+        <Compile Remove="AcnhMateApi.Tests\**"/>
+        <Compile Remove="AcnhMateApi.Models\**"/>
     </ItemGroup>
 
     <ItemGroup>
-      <EmbeddedResource Remove="AcnhMateApi.Tests\**" />
-      <EmbeddedResource Remove="AcnhMateApi.Models\**" />
+        <EmbeddedResource Remove="AcnhMateApi.Tests\**"/>
+        <EmbeddedResource Remove="AcnhMateApi.Models\**"/>
     </ItemGroup>
 
     <ItemGroup>
-      <None Remove="AcnhMateApi.Tests\**" />
-      <None Remove="AcnhMateApi.Models\**" />
+        <None Remove="AcnhMateApi.Tests\**"/>
+        <None Remove="AcnhMateApi.Models\**"/>
     </ItemGroup>
 
     <ItemGroup>
-      <Content Remove="AcnhMateApi.Tests\**" />
-      <Content Remove="AcnhMateApi.Models\**" />
+        <Content Remove="AcnhMateApi.Tests\**"/>
+        <Content Remove="AcnhMateApi.Models\**"/>
     </ItemGroup>
 
     <ItemGroup>
-      <_ContentIncludedByDefault Remove="AcnhMateApi.Tests\obj\AcnhMateApi.Tests.csproj.nuget.dgspec.json" />
-      <_ContentIncludedByDefault Remove="AcnhMateApi.Tests\obj\project.assets.json" />
-      <_ContentIncludedByDefault Remove="AcnhMateApi.Tests\obj\project.packagespec.json" />
-      <_ContentIncludedByDefault Remove="AcnhMateApi.Models\bin\Debug\net6.0\AcnhMateApi.Models.deps.json" />
-      <_ContentIncludedByDefault Remove="AcnhMateApi.Models\obj\AcnhMateApi.Models.csproj.nuget.dgspec.json" />
-      <_ContentIncludedByDefault Remove="AcnhMateApi.Models\obj\project.assets.json" />
-      <_ContentIncludedByDefault Remove="AcnhMateApi.Models\obj\project.packagespec.json" />
+        <_ContentIncludedByDefault Remove="AcnhMateApi.Tests\obj\AcnhMateApi.Tests.csproj.nuget.dgspec.json"/>
+        <_ContentIncludedByDefault Remove="AcnhMateApi.Tests\obj\project.assets.json"/>
+        <_ContentIncludedByDefault Remove="AcnhMateApi.Tests\obj\project.packagespec.json"/>
+        <_ContentIncludedByDefault Remove="AcnhMateApi.Models\bin\Debug\net6.0\AcnhMateApi.Models.deps.json"/>
+        <_ContentIncludedByDefault Remove="AcnhMateApi.Models\obj\AcnhMateApi.Models.csproj.nuget.dgspec.json"/>
+        <_ContentIncludedByDefault Remove="AcnhMateApi.Models\obj\project.assets.json"/>
+        <_ContentIncludedByDefault Remove="AcnhMateApi.Models\obj\project.packagespec.json"/>
     </ItemGroup>
 
     <ItemGroup>
-      <ProjectReference Include="AcnhMateApi.Models\AcnhMateApi.Models.csproj" />
+        <ProjectReference Include="AcnhMateApi.Models\AcnhMateApi.Models.csproj"/>
     </ItemGroup>
 
 </Project>

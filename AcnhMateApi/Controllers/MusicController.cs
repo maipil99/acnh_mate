@@ -26,12 +26,12 @@ public class MusicController : ControllerBase
     {
         return await _musicRepository.GetByIdAsync(id);
     }
-    
+
     [HttpPost]
     public void Post([FromBody] string value)
     {
     }
-    
+
     [HttpPut("{id}")]
     public void Put(int id, [FromBody] string value)
     {

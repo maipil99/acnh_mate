@@ -1,5 +1,4 @@
 ﻿using AcnhMateApi.Models;
-using MongoDB.Bson;
 using MongoDB.Driver;
 
 namespace AcnhMateApi.Services;

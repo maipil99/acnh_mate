@@ -31,7 +31,7 @@ public class ArtControllerTests
         var mongoContext = new Mock<IMongoDatabase>();
         var repository = new Mock<ArtRepository>(mongoContext.Object);
         repository.Setup(repo => repo.GetByIdAsync(It.IsAny<int>())).ReturnsAsync(_art);
-        
+
         _controller = new ArtController(repository.Object);
     }
 
@@ -39,7 +39,7 @@ public class ArtControllerTests
     public async Task GetById()
     {
         var result = await _controller.Get(1);
-        
+
         Assert.Equal(_art, result);
     }
 }

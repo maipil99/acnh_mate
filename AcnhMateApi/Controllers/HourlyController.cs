@@ -26,12 +26,12 @@ public class HourlyController : ControllerBase
     {
         return await _hourlyRepository.GetByIdAsync(id);
     }
-    
+
     [HttpPost]
     public void Post([FromBody] string value)
     {
     }
-    
+
     [HttpPut("{id}")]
     public void Put(int id, [FromBody] string value)
     {

@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Reflection;
-using System.Threading.Tasks;
+﻿using System.Reflection;
 using AcnhMateApi.Models;
 using MongoDB.Driver;
 
@@ -9,7 +6,7 @@ namespace AcnhMateApi.Services;
 
 public abstract class BaseRepository<TEntity> : IRepository<TEntity> where TEntity : BaseDataObject
 {
-    readonly IMongoDatabase _context;
+    private readonly IMongoDatabase _context;
     protected readonly IMongoCollection<TEntity> DbSet;
 
     protected BaseRepository(IMongoDatabase context)
@@ -18,9 +15,7 @@ public abstract class BaseRepository<TEntity> : IRepository<TEntity> where TEnti
 
         var attr = typeof(TEntity).GetCustomAttribute(typeof(CollectionNameAttribute));
         if (attr is not CollectionNameAttribute collectionNameAttribute)
-        {
             throw new Exception($"{typeof(TEntity).Name} is not decorated with CollectionNameAttribute");
-        }
 
         DbSet = _context.GetCollection<TEntity>(collectionNameAttribute.Name);
     }
@@ -33,12 +28,6 @@ public abstract class BaseRepository<TEntity> : IRepository<TEntity> where TEnti
     public virtual async Task<TEntity> GetByIdAsync(int id)
     {
         var data = await DbSet.FindAsync(entity => entity.Id == id);
-        return await data.FirstOrDefaultAsync();
-    }
-
-    public virtual async Task<TEntity> GetByFileNameAsync(string fileName)
-    {
-        var data = await DbSet.FindAsync(entity => entity.FileName == fileName);
         return await data.FirstOrDefaultAsync();
     }
 
@@ -56,5 +45,11 @@ public abstract class BaseRepository<TEntity> : IRepository<TEntity> where TEnti
     public virtual async Task<bool> RemoveAsync(int id)
     {
         return (await DbSet.DeleteOneAsync(Builders<TEntity>.Filter.Eq(" _id ", id))).IsAcknowledged;
+    }
+
+    public virtual async Task<TEntity> GetByFileNameAsync(string fileName)
+    {
+        var data = await DbSet.FindAsync(entity => entity.FileName == fileName);
+        return await data.FirstOrDefaultAsync();
     }
 }
