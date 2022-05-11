@@ -1,0 +1,35 @@
+﻿services:
+  elasticsearch:
+    image: elasticsearch:7.17.3
+    container_name: elasticsearch-container
+    environment:
+      - node.name=elasticsearch
+      - discovery.type=single-node
+      - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
+      - xpack.security.http.ssl.enabled=false
+      - xpack.security.enabled=false
+    ulimits:
+      memlock:
+        soft: -1
+        hard: -1
+    ports:
+      - "9200:9200"
+    networks:
+      - elastic
+    volumes:
+      - "${ELASTIC_VOLUME}:/usr/share/elasticsearch/data"
+  kibana:
+    image: kibana:7.17.3
+    container_name: kibana-container
+    ports:
+      - "5601:5601"
+    networks:
+      - elastic
+    environment:
+      ELASTICSEARCH_URL: "http://localhost:9200"
+    depends_on:
+      - elasticsearch
+
+networks:
+  elastic:
+    driver: bridge

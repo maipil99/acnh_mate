@@ -1,0 +1,21 @@
+pipeline {
+    agent any
+
+    stages {
+        stage('Clean Containers') {
+            steps {
+                script {
+                    try {
+                        sh 'sudo docker compose -p logging --env-file ./linux.env down'
+                    } finally {
+                    }
+                }
+            }
+        }
+        stage('Deploy') {
+            steps {
+                sh 'sudo docker compose -p logging --env-file ./linux.env up -d'
+            }
+        }
+    }
+}
