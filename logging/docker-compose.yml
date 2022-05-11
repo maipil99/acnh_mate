@@ -17,7 +17,7 @@
     networks:
       - elastic
     volumes:
-      - "${ELASTIC_VOLUME}:/usr/share/elasticsearch/data"
+      - elastic-volume:/usr/share/elasticsearch/data
   kibana:
     image: kibana:7.17.3
     container_name: kibana-container
@@ -33,3 +33,6 @@
 networks:
   elastic:
     driver: bridge
+
+volumes:
+  elastic-volume:
