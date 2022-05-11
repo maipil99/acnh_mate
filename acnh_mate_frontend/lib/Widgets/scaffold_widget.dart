@@ -25,13 +25,22 @@ class _ScaffoldWidgetState extends State<ScaffoldWidget> {
           ListTile(
             selectedTileColor: Colors.blue,
             title: const Text('Home'),
-            onTap: () => Navigator.pushNamed(context, "/home"),
+            onTap: (){
+              var pageName = "/home";
+              Navigator.pushNamed(context, pageName);
+            },
           ),
           ListTile(
               selectedTileColor: Colors.blue,
               title: const Text('Collections'),
-              onTap: () => Navigator.pushNamed(context, "/collections")),
+              onTap: (){
+                var pageName = "/collections";
+                Navigator.pushNamed(context, pageName);
+              }),
         ])),
         body: widget.body);
   }
+
+
+
 }

@@ -12,19 +12,24 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
+    Map routes = {
+      "/home": (context) => const HomePage(),
+      "/collections": (context) => const CollectionPage(),
+    };
+
     return MaterialApp(
-      title: 'Flutter Demo',
-      theme: ThemeData(
-
-        primarySwatch: Colors.blue,
-      ),
-      home: const HomePage(),
-
-      routes: {
-        "/home": (context) => HomePage(),
-        "/collections": (context) => CollectionPage(),
-      }
-    );
-
+        title: 'Flutter Demo',
+        theme: ThemeData(
+          primarySwatch: Colors.blue,
+        ),
+        home: const HomePage(),
+        initialRoute: "/home",
+        onGenerateRoute: (settings) {
+          if (ModalRoute.of(context)?.settings.name == settings.name) return null; //Check if already on page
+          return PageRouteBuilder(
+              transitionDuration: Duration.zero,
+              settings: settings,
+              pageBuilder: (_, __, ___) => routes[settings.name](context));
+        });
   }
 }
