@@ -7,7 +7,7 @@ pipeline {
                 dir("logging") {
                     script {
                         try {
-                            sh 'sudo docker compose -p logging --env-file linux.env down'
+                            sh 'sudo docker compose -p logging down'
                         } finally {
                         }
                     }
@@ -17,7 +17,7 @@ pipeline {
         stage('Deploy') {
             steps {
                 dir("logging") {
-                    sh 'sudo docker compose -p logging --env-file linux.env up -d'
+                    sh 'sudo docker compose -p logging up -d'
                 }
             }
         }
