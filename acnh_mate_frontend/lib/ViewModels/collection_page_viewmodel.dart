@@ -1,28 +1,26 @@
-import 'package:acnh_mate_frontend/Widgets/item_row_widget.dart';
 import 'package:flutter/material.dart';
 
 import '../Models/fish_model.dart';
 
 class CollectionPageViewModel{
-  List<ItemRowWidget> activeList = [];
+  List<Tab>? tabs;
 
-  List<ItemRowWidget> listFish = [
-    ItemRowWidget(image: "bitterling.png", name: "I am fish", firstIcon: "fishing_net.png", secondIcon: "owl.png"),
-    ItemRowWidget(image: "bitterling.png", name: "I am also fish", firstIcon: "fishing_net.png", secondIcon: "owl.png"),
-    ItemRowWidget(image: "bitterling.png", name: "I am another fish", firstIcon: "fishing_net.png", secondIcon: "owl.png"),
+
+  List<dynamic> activeList = [];
+  List<Bug> listBugs = [];
+  List<SeaCritter> listSeaCritters = [];
+  List<Fish> listFish = [
+    Fish("I am fish", "bitterling.png"),
+    Fish("I am also fish", "bitterling.png"),
+    Fish("I am another fish", "bitterling.png"),
   ];
-  List<ItemRowWidget> listBugs = [
 
-  ];
-
-
-
-
-  List<Tab>? myTabs;
 
   CollectionPageViewModel(){
     activeList = listFish;
-    myTabs = <Tab>[
+
+    //Setup tabs
+    tabs = <Tab>[
       const Tab(text: 'Fish'),
       const Tab(text: 'Bugs'),
       const Tab(text: 'Sea Critters'),
@@ -35,15 +33,20 @@ class CollectionPageViewModel{
     switch(index){
       case 0:
         activeList = listFish;
-
         break;
       case 1:
         activeList = listBugs;
         break;
       case 2:
-      //
+        activeList = listSeaCritters;
         break;
     }
-    print(index.toString());
   }
+}
+
+
+class SeaCritter {
+}
+
+class Bug {
 }

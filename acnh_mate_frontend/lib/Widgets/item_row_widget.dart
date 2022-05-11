@@ -1,18 +1,27 @@
 import 'package:flutter/material.dart';
+import '../Common/enums.dart';
 
 class ItemRowWidget extends StatelessWidget {
   String image;
-  String firstIcon;
-  String secondIcon;
+  String firstIcon = "";
+  String secondIcon = "owl.png";
   String name;
+  CollectionsCategory category;
 
-  ItemRowWidget(
-      {Key? key,
-      required this.image,
-      required this.name,
-      required this.firstIcon,
-      required this.secondIcon})
-      : super(key: key);
+  ItemRowWidget(this.image,this.name,this.category){
+    switch(category){
+      case CollectionsCategory.fish:
+        firstIcon = 'fishing_net.png';
+        break;
+      case CollectionsCategory.bugs:
+        firstIcon = 'acorn.png';
+        break;
+      case CollectionsCategory.seaCritters:
+        firstIcon = 'leaf.png';
+        break;
+    }
+  }
+
 
   @override
   Widget build(BuildContext context) {
@@ -30,7 +39,7 @@ class ItemRowWidget extends StatelessWidget {
           IconButton(
               onPressed: () => {}, //do things
               icon:
-              Image.asset("assets/button_icons/" + secondIcon, height: 30)),
+                  Image.asset("assets/button_icons/" + secondIcon, height: 30)),
         ],
       ),
     );
