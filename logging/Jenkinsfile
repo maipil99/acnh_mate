@@ -4,17 +4,21 @@ pipeline {
     stages {
         stage('Clean Containers') {
             steps {
-                script {
-                    try {
-                        sh 'sudo docker compose -p logging --env-file logging/linux.env down'
-                    } finally {
+                dir("logging") {
+                    script {
+                        try {
+                            sh 'sudo docker compose -p logging --env-file linux.env down'
+                        } finally {
+                        }
                     }
                 }
             }
         }
         stage('Deploy') {
             steps {
-                sh 'sudo docker compose -p logging --env-file logging/linux.env up -d'
+                dir("logging") {
+                    sh 'sudo docker compose -p logging --env-file linux.env up -d'
+                }
             }
         }
     }
