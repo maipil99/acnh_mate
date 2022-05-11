@@ -38,7 +38,7 @@ pipeline {
             steps {
                 script {
                     try {
-                        sh 'sudo docker compose -p acnh-mate-test --env-file ./config/test.env down'
+                        sh 'sudo docker compose --env-file ./config/test.env down'
                     } finally {
                     }
                 }
@@ -47,7 +47,7 @@ pipeline {
         stage('Deploy') {
             steps {
                 sh 'sudo docker compose --env-file ./config/test.env build backend'
-                sh 'sudo docker compose -p acnh-mate-test --env-file ./config/test.env up -d'
+                sh 'sudo docker compose--env-file ./config/test.env up -d'
             }
         }
         stage("Push images to registry") {
