@@ -5,7 +5,9 @@ pipeline {
         stage('Build Backend') {
             steps {
                 dir('AcnhMateApi') {
-                    sh 'dotnet clean'
+                    sh 'rm ./obj -r'
+                    sh 'rm ./bin -r'
+                    sh 'rm ./published -r'
                     sh 'dotnet publish -c Release -o published'
                 }
             }
