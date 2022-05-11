@@ -54,3 +54,4 @@ app.*.map.json
 #.NET build output
 /AcnhMateApi/**/bin
 /AcnhMateApi/**/obj
+/AcnhMateApi/published/

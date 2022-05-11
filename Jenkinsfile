@@ -6,7 +6,7 @@ pipeline {
             steps {
                 dir('AcnhMateApi') {
                     sh 'dotnet clean'
-                    sh 'dotnet build --configuration Release'
+                    sh 'dotnet publish -c Release -o published'
                 }
             }
         }
