@@ -1,5 +1,7 @@
 
-import 'package:acnh_mate_frontend/Widgets/custom_scaffold_widget.dart';
+import 'package:acnh_mate_frontend/Common/enums.dart';
+import 'package:acnh_mate_frontend/Widgets/scaffold_widget.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
 import '../ViewModels/collection_page_viewmodel.dart';
@@ -19,7 +21,7 @@ class _CollectionPageState extends State<CollectionPage> with SingleTickerProvid
   @override
   void initState() {
     super.initState();
-    _tabController = TabController(vsync: this, length: vm.myTabs!.length);
+    _tabController = TabController(vsync: this, length: vm.tabs!.length);
   }
 
   @override
@@ -32,7 +34,7 @@ class _CollectionPageState extends State<CollectionPage> with SingleTickerProvid
           TabBar(
             labelColor: Colors.blue,
             controller: _tabController,
-            tabs: vm.myTabs!,
+            tabs: vm.tabs!,
             onTap: (index) {
               vm.tabClick(index);
               setState((){});
@@ -40,7 +42,9 @@ class _CollectionPageState extends State<CollectionPage> with SingleTickerProvid
           ),
           ListView(
             shrinkWrap: true,
-            children: vm.activeList,
+
+            //Map model class to itemrowwidget
+            children: vm.activeList.map((e) => ItemRowWidget(e.icon,e.name, CollectionsCategory.fish)).toList(),
           )
         ],
       ),
