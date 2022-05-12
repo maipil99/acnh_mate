@@ -49,7 +49,9 @@ pipeline {
             }
         }
         stage("Load Test") {
-            sh "sudo k6 run performance/performance-test.js"
+            steps {
+                sh "sudo k6 run performance/performance-test.js"
+            }
         }
         stage("Push images to registry") {
             steps {
