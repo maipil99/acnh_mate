@@ -50,7 +50,7 @@ pipeline {
         }
         stage("Load Test") {
             steps {
-                sh "sudo docker run grafana/k6 run - <performance/performance-test.js"
+                sh "sudo docker run grafana/k6 run performance/performance-test.js"
             }
         }
         stage("Push images to registry") {
