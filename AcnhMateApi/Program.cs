@@ -9,12 +9,22 @@ using Serilog.Sinks.Elasticsearch;
 
 var builder = WebApplication.CreateBuilder(args);
 
+builder.Services.AddCors(options =>
+{
+    options.AddDefaultPolicy(policyBuilder =>
+    {
+        policyBuilder.AllowAnyHeader()
+            .AllowAnyOrigin()
+            .AllowAnyMethod();
+    });
+});
 // Add services to the container.
 
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Logging.AddSerilog();
+
 
 var pack = new ConventionPack {new CamelCaseElementNameConvention()};
 ConventionRegistry.Register("Camel case convention", pack, t => true);
@@ -61,7 +71,7 @@ builder.Host.UseSerilog((context, logConfig) =>
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
-
+app.UseCors();
 app.UseSwagger();
 app.UseSwaggerUI();
 

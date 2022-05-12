@@ -16,9 +16,9 @@ pipeline {
                 sh "echo 'Building Frontend'"
             }
         }
-        stage('Testing'){
-            steps{
-                dir('AcnhMateApi/AcnhMateApi.Tests'){
+        stage('Testing') {
+            steps {
+                dir('AcnhMateApi/AcnhMateApi.Tests') {
                     sh 'sudo rm -rf ./TestResults'
                     sh 'dotnet test --collect:\'XPlat Code Coverage\''
                 }
@@ -45,8 +45,13 @@ pipeline {
         }
         stage('Deploy') {
             steps {
-                sh 'sudo docker compose --env-file ./config/test.env build backend'
+                sh 'sudo docker compose -p acnh-mate-api --env-file ./config/test.env build backend'
                 sh 'sudo docker compose -p acnh-mate-api --env-file ./config/test.env up -d'
+            }
+        }
+        stage("Load Test") {
+            steps {
+                echo "Perform load tests here"
             }
         }
         stage("Push images to registry") {
@@ -55,9 +60,9 @@ pipeline {
             }
         }
     }
-    post{
-        always{
-            withCredentials([string(credentialsId: 'DISCORD_WEBHOOK', variable: 'DISCORD_WEBHOOK_URL')]){
+    post {
+        always {
+            withCredentials([string(credentialsId: 'DISCORD_WEBHOOK', variable: 'DISCORD_WEBHOOK_URL')]) {
                 discordSend description: env.GIT_COMMITTER_NAME, footer: env.GIT_URL, link: env.BUILD_URL, result: currentBuild.currentResult, title: JOB_NAME, webhookURL: "${DISCORD_WEBHOOK_URL}"
             }
         }
