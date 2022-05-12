@@ -47,7 +47,7 @@ pipeline {
         stage('Deploy') {
             steps {
                 sh 'sudo docker compose --env-file ./config/test.env build backend'
-                sh 'sudo docker compose --env-file ./config/test.env up'
+                sh 'sudo docker compose --env-file ./config/test.env up -d'
             }
         }
         stage("Push images to registry") {
