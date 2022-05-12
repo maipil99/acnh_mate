@@ -1,6 +1,4 @@
-ARG flutter_tag
-
-FROM cirrusci/flutter:$flutter_tag
+FROM cirrusci/flutter:stable
 
 RUN flutter config --enable-web \
     && sudo apt-get update \
