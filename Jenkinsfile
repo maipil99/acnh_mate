@@ -37,7 +37,8 @@ pipeline {
                 script {
                     try {
                         sh 'sudo docker compose -p acnh-mate-api --env-file ./config/test.env down'
-                    } finally {
+                    } catch(err) {
+                        echo err.getMessage()
                     }
                 }
             }
