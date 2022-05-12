@@ -9,7 +9,8 @@ pipeline {
                 script {
                     try {
                         sh 'sudo docker compose -p acnh-mate-prod --env-file ./config/prod.env down'
-                    } finally {
+                    } catch(err) {
+                        echo err.getMessage()
                     }
                 }
             }
