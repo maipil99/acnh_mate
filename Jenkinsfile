@@ -45,7 +45,7 @@ pipeline {
         }
         stage('Deploy') {
             steps {
-                sh 'sudo docker compose --env-file ./config/test.env build backend'
+                sh 'sudo docker compose -p acnh-mate-api --env-file ./config/test.env build backend'
                 sh 'sudo docker compose -p acnh-mate-api --env-file ./config/test.env up -d'
             }
         }
