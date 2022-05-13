@@ -35,7 +35,7 @@ class _CollectionPageState extends State<CollectionPage>
             controller: _tabController,
             tabs: vm.tabs!,
             onTap: (index) {
-             // vm.tabClick(index);
+              vm.tabClick(index);
               setState(() {});
             },
           ),
@@ -54,6 +54,7 @@ class _CollectionPageState extends State<CollectionPage>
                           .toList(),
                     ),
                   );
+
                 }
                 else {
                   {
