@@ -1,4 +1,3 @@
-
 import 'package:acnh_mate_frontend/Common/enums.dart';
 import 'package:acnh_mate_frontend/Widgets/scaffold_widget.dart';
 import 'package:flutter/foundation.dart';
@@ -14,7 +13,8 @@ class CollectionPage extends StatefulWidget {
   _CollectionPageState createState() => _CollectionPageState();
 }
 
-class _CollectionPageState extends State<CollectionPage> with SingleTickerProviderStateMixin {
+class _CollectionPageState extends State<CollectionPage>
+    with SingleTickerProviderStateMixin {
   var vm = CollectionPageViewModel();
   TabController? _tabController;
 
@@ -26,7 +26,6 @@ class _CollectionPageState extends State<CollectionPage> with SingleTickerProvid
 
   @override
   Widget build(BuildContext context) {
-
     return ScaffoldWidget(
       pageTitle: 'Collections',
       body: Column(
@@ -36,16 +35,38 @@ class _CollectionPageState extends State<CollectionPage> with SingleTickerProvid
             controller: _tabController,
             tabs: vm.tabs!,
             onTap: (index) {
-              vm.tabClick(index);
-              setState((){});
+             // vm.tabClick(index);
+              setState(() {});
             },
           ),
-          ListView(
-            shrinkWrap: true,
-
-            //Map model class to itemrowwidget
-            children: vm.activeList.map((e) => ItemRowWidget(e.icon,e.name, CollectionsCategory.fish)).toList(),
-          )
+          FutureBuilder(
+              future: vm.fetchFromApi(),
+              builder: (context, AsyncSnapshot<List<dynamic>> snapshot) {
+                if (snapshot.hasData) {
+                  return Expanded(
+                    child: ListView(
+                      scrollDirection: Axis.vertical,
+                      shrinkWrap: true,
+                      //Map model class to itemrowwidget
+                      children: snapshot.data!
+                          .map((e) => ItemRowWidget(
+                              e.iconUri, e.name.nameUSen, CollectionsCategory.fish))
+                          .toList(),
+                    ),
+                  );
+                }
+                else {
+                  {
+                    return Column(
+                              crossAxisAlignment: CrossAxisAlignment.center,
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: const <Widget>[
+                                CircularProgressIndicator(),
+                                Text("Loading...")
+                              ]);
+                  }
+                }
+              })
         ],
       ),
     );
