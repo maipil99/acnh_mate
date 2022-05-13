@@ -2,11 +2,11 @@ import 'package:flutter/material.dart';
 import '../Common/enums.dart';
 
 class ItemRowWidget extends StatelessWidget {
-  String image;
-  String firstIcon = "";
-  String secondIcon = "owl.png";
-  String name;
-  CollectionsCategory category;
+  final String image;
+  late final String firstIcon;
+  final String secondIcon = "owl.png";
+  final String name;
+  final CollectionsCategory category;
 
   ItemRowWidget(this.image,this.name,this.category){
     switch(category){
@@ -27,20 +27,30 @@ class ItemRowWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       padding: EdgeInsets.all(15),
-      child: Row(
-        children: <Widget>[
-          Image.asset("assets/icons/" + image, height: 50),
-          Text(name),
-          const Spacer(),
-          IconButton(
-              onPressed: () => {},
-              icon:
-                  Image.asset("assets/button_icons/" + firstIcon, height: 30)),
-          IconButton(
-              onPressed: () => {}, //do things
-              icon:
-                  Image.asset("assets/button_icons/" + secondIcon, height: 30)),
-        ],
+      child: Container(
+        decoration: BoxDecoration(
+            shape: BoxShape.rectangle,
+            border: Border(
+              bottom: BorderSide(
+                color: Colors.blue,
+                width: 2),
+
+            )),
+        child: Row(
+          children: <Widget>[
+            Image.network(image, height: 50),
+            Text(name),
+            const Spacer(),
+            IconButton(
+                onPressed: () => {},
+                icon:
+                    Image.asset("assets/button_icons/" + firstIcon, height: 30)),
+            IconButton(
+                onPressed: () => {}, //do things
+                icon:
+                    Image.asset("assets/button_icons/" + secondIcon, height: 30)),
+          ],
+        ),
       ),
     );
   }

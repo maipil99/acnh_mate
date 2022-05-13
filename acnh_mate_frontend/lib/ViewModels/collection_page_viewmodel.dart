@@ -1,36 +1,46 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
 
+import '../Models/bug_model.dart';
+import '../api.dart';
 import '../Models/fish_model.dart';
+import '../Models/sea_model.dart';
 
-class CollectionPageViewModel{
+class CollectionPageViewModel {
   List<Tab>? tabs;
-
 
   List<dynamic> activeList = [];
   List<Bug> listBugs = [];
-  List<SeaCritter> listSeaCritters = [];
-  List<Fish> listFish = [
-    Fish("I am fish", "bitterling.png"),
-    Fish("I am also fish", "bitterling.png"),
-    Fish("I am another fish", "bitterling.png"),
-  ];
+  List<Sea> listSeaCritters = [];
+  List<Fish> listFish = [];
 
-
-  CollectionPageViewModel(){
-    activeList = listFish;
-
+  CollectionPageViewModel() {
     //Setup tabs
     tabs = <Tab>[
       const Tab(text: 'Fish'),
       const Tab(text: 'Bugs'),
       const Tab(text: 'Sea Critters'),
     ];
-
-
   }
-  
-  tabClick(int index){
-    switch(index){
+
+  Future<List<dynamic>> fetchFromApi() async {
+    print('run');
+    var res = await api.fetch("fish");
+
+    List<dynamic> list = json.decode(res.body);
+
+
+    List<Fish> fishes = [];
+    for (var item in list) {
+      Fish fish = Fish.fromJson(item);
+      fishes.add(fish);
+    }
+    return fishes;
+  }
+
+  tabClick(int index) {
+    switch (index) {
       case 0:
         activeList = listFish;
         break;
@@ -42,11 +52,4 @@ class CollectionPageViewModel{
         break;
     }
   }
-}
-
-
-class SeaCritter {
-}
-
-class Bug {
 }
