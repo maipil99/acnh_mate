@@ -48,8 +48,8 @@ class _CollectionPageState extends State<CollectionPage>
                       shrinkWrap: true,
                       //Map model class to itemrowwidget
                       children: snapshot.data!
-                          .map((e) => ItemRowWidget(
-                              e.iconUri, e.name.nameUSen, CollectionsCategory.fish))
+                          .map((item) => ItemRowWidget(
+                              item))
                           .toList(),
                     ),
                   );
