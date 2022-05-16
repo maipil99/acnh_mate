@@ -12,7 +12,6 @@ class CollectionPage extends StatefulWidget {
   @override
   _CollectionPageState createState() => _CollectionPageState();
 }
-
 class _CollectionPageState extends State<CollectionPage>
     with SingleTickerProviderStateMixin {
   var vm = CollectionPageViewModel();
