@@ -2,33 +2,22 @@ import 'package:flutter/material.dart';
 import '../Common/enums.dart';
 
 class ItemRowWidget extends StatelessWidget {
-  final String image;
-  late final String firstIcon;
-  final String secondIcon = "owl.png";
-  final String name;
-  final CollectionsCategory category;
+  dynamic item;
 
-  ItemRowWidget(this.image,this.name,this.category){
-    switch(category){
-      case CollectionsCategory.fish:
-        firstIcon = 'fishing_net.png';
-        break;
-      case CollectionsCategory.bugs:
-        firstIcon = 'acorn.png';
-        break;
-      case CollectionsCategory.seaCritters:
-        firstIcon = 'leaf.png';
-        break;
-    }
-  }
+  final String firstIcon = "owl.png";
+  final String secondIcon = "owl.png";
+  final CollectionsCategory category = CollectionsCategory.fish;
+
+  ItemRowWidget(this.item, {Key? key}) : super(key: key);
 
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      padding: EdgeInsets.all(15),
+    return InkWell(
+      onTap: () => Navigator.pushNamed(context, '/collections_item', arguments: {'item': item},),
       child: Container(
-        decoration: BoxDecoration(
+        padding: const EdgeInsets.all(15),
+        decoration: const BoxDecoration(
             shape: BoxShape.rectangle,
             border: Border(
               bottom: BorderSide(
@@ -38,8 +27,8 @@ class ItemRowWidget extends StatelessWidget {
             )),
         child: Row(
           children: <Widget>[
-            Image.network(image, height: 50),
-            Text(name),
+            Image.network(item.iconUri, height: 50),
+            Text(item.name.nameUSen),
             const Spacer(),
             IconButton(
                 onPressed: () => {},

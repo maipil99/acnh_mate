@@ -1,3 +1,4 @@
+import 'package:acnh_mate_frontend/Views/collection_item_page.dart';
 import 'package:acnh_mate_frontend/Views/collection_page.dart';
 import 'package:acnh_mate_frontend/Views/home_page.dart';
 import 'package:flutter/material.dart';
@@ -15,6 +16,7 @@ class MyApp extends StatelessWidget {
     Map routes = {
       "/home": (context) => const HomePage(),
       "/collections": (context) => const CollectionPage(),
+      "/collections_item": (context) => CollectionItemPage(),
     };
 
     return MaterialApp(
