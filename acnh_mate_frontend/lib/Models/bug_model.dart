@@ -36,7 +36,7 @@ class Bug {
     price = json['price'];
     priceFlick = json['priceFlick'];
     catchPhrase = json['catchPhrase'];
-    altCatchPhrase = json['altCatchPhrase'];
+    altCatchPhrase = json['altCatchPhrase'] == null ? null : altCatchPhrase = json['altCatchPhrase'].cast<String>();
     museumPhrase = json['museumPhrase'];
     imageUri = json['imageUri'];
     iconUri = json['iconUri'];

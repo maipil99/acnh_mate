@@ -1,5 +1,6 @@
 import 'dart:convert';
 
+import 'package:acnh_mate_frontend/Common/enums.dart';
 import 'package:flutter/material.dart';
 
 import '../Models/bug_model.dart';
@@ -8,12 +9,16 @@ import '../Models/fish_model.dart';
 import '../Models/sea_model.dart';
 
 class CollectionPageViewModel {
+  //Ensure singleton
+  CollectionPageViewModel._privateConstructor();
+  static final CollectionPageViewModel instance = CollectionPageViewModel._privateConstructor();
+
   List<Tab>? tabs;
 
-  List<dynamic> activeList = [];
   List<Bug> listBugs = [];
   List<Sea> listSeaCritters = [];
   List<Fish> listFish = [];
+  CollectionsCategory category = CollectionsCategory.fish;
 
   CollectionPageViewModel() {
     //Setup tabs
@@ -25,30 +30,41 @@ class CollectionPageViewModel {
   }
 
   Future<List<dynamic>> fetchFromApi() async {
-    print('run');
-    var res = await api.fetch("fish");
+    switch(category){
+      case CollectionsCategory.fish:
+        if(listFish.isNotEmpty) return listFish; //Guard clause
 
-    List<dynamic> list = json.decode(res.body);
+        var res = await api.fetch("fish");
+        Iterable l = json.decode(res.body);
+        listFish = List<Fish>.from(l.map((model)=> Fish.fromJson(model)));
+        return listFish;
+      case CollectionsCategory.bugs:
+        if(listBugs.isNotEmpty) return listBugs; //Guard clause
 
+        var res = await api.fetch("bugs");
+        Iterable l = json.decode(res.body);
+        listBugs = List<Bug>.from(l.map((model)=> Bug.fromJson(model)));
+        return listBugs;
+      case CollectionsCategory.seaCritters:
+        if(listSeaCritters.isNotEmpty) return listSeaCritters; //Guard clause
 
-    List<Fish> fishes = [];
-    for (var item in list) {
-      Fish fish = Fish.fromJson(item);
-      fishes.add(fish);
+        var res = await api.fetch("sea");
+        Iterable l = json.decode(res.body);
+        listSeaCritters = List<Sea>.from(l.map((model)=> Sea.fromJson(model)));
+        return listSeaCritters;
     }
-    return fishes;
   }
 
   tabClick(int index) {
     switch (index) {
       case 0:
-        activeList = listFish;
+        category = CollectionsCategory.fish;
         break;
       case 1:
-        activeList = listBugs;
+        category = CollectionsCategory.bugs;
         break;
       case 2:
-        activeList = listSeaCritters;
+        category = CollectionsCategory.seaCritters;
         break;
     }
   }
